@@ -56,6 +56,14 @@ class AppThemeData {
             foregroundColor: Colors.white),
       ),
       textButtonTheme: TextButtonThemeData(
-          style:
-              TextButton.styleFrom(foregroundColor: AppColors.primoryColor)));
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.primoryColor,
+        ),
+      ),
+      appBarTheme: const AppBarTheme(
+        titleTextStyle: TextStyle(fontSize: 18, color: Colors.black),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 5,
+      ));
 }
