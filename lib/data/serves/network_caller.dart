@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:crafty_bay/data/response_data.dart';
-
 import 'package:http/http.dart' as http;
 
 class NetaorkCaller {
-  Future<ResponseData> getRequest(
-    String url,
-  ) async {
-    http.Response response = await http.get(Uri.parse(url));
+  Future<ResponseData> getRequest(String url, {String? token}) async {
+    http.Response response = await http.get(Uri.parse(url), headers: {
+      "token": token.toString(),
+      "Content-type": "Aapplication/json"
+    });
     log(url);
+    log(token.toString());
     log(response.statusCode.toString());
+    log(response.headers.toString());
     log(response.body.toString());
     if (response.statusCode == 200) {
       final decodedResponse = jsonDecode(response.body);

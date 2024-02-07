@@ -67,12 +67,16 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                                     await controller.sendOtpEmail(
                                         _emailTEControler.text.trim());
                                 if (result) {
-                                  Get.to(() => const VerifyOtpScreen());
+                                  Get.to(() => VerifyOtpScreen(
+                                        email: _emailTEControler.text,
+                                      ));
                                 } else {
                                   Get.showSnackbar(
                                     GetSnackBar(
                                       title: "Send otp Faild",
                                       message: controller.errorMessage,
+                                      isDismissible: true,
+                                      duration: const Duration(seconds: 2),
                                     ),
                                   );
                                 }
